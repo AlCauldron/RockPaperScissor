@@ -1,7 +1,31 @@
-<script>
-    function computerPlay(){
-        var choice = ["Rock","Paper","Scissor"];
-        var a = Math.floor(Math.random() * 4);
-        return choice[parseInt(a)];
-    }
-</Script>
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function computerPlay(){
+                var choice = ["Rock","Paper","Scissor"];
+                var a = Math.floor(Math.random() * 4);
+                return choice[parseInt(a)];
+            }
+        
+            function playRound(player,computer){
+                const play = player.toLowerCase();
+                const comp = computer.toLowerCase(); 
+                if (play == "rock" && comp == "scissor" || play == "paper" && comp == "rock" || play == "scissor" && comp == "paper") {
+                    alert("You win! "+play+" beats "+comp);
+                } else {
+                    alert("You lose! "+comp+" beats "+play);
+                }
+            }
+        
+            function game(){
+                for (let index = 0; index < 5; index++) {
+                    const playerSelection = window.prompt("Enter rock, paper or scissor");
+                    const computerSelection = computerPlay();
+                    console.log(playRound(playerSelection,computerSelection));
+                }
+            }
+            game();
+        </script>
+    </body>
+</html>
